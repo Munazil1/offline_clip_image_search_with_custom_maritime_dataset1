@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+
+# User uploads
+static/uploads/
+
+# Dataset & generated files
+*.npy
+*.npz
+*.pt
+*.deb
+*.pkg
+*.spec
+*.log
+search_logs.txt
+feedback.json
+caption_*.json
+fusion_features.*
+image_features.*
+caption_features.*
+common_tags.json
+
+# Build & packaging
+dist/
+build/
+
+# System/editor files
+.DS_Store
+.vscode/
+
