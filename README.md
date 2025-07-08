@@ -17,14 +17,13 @@ This project implements an offline image search system using OpenAI’s CLIP mod
 ## 📁 Project Structure
 
 clip_image_search/
-├── app.py                        # Main application
-├── utils.py                      # Embedding and search logic
-├── preprocess_features.py        # Image preprocessing and feature extraction
-├── templates/index.html          # Web UI (Flask/HTML)
-├── caption_image_map.json        # Mapping between image files and captions
-├── requirements.txt              # Python dependencies
-└── README.md                     # This file
-
+├── app.py                       
+├── utils.py                      
+├── preprocess_features.py        
+├── templates/index.html         
+├── caption_image_map.json        
+├── requirements.txt              
+└── README.md                  
 ---
 
 ## 🚀 How to Run
