@@ -1,66 +1,83 @@
-# offline_clip_image_search_with_custom_maritime_dataset
-A fully offline semantic image search tool using OpenAI's CLIP ViT-L/14 model and a custom maritime dataset. Supports both natural language and reverse image queries, with a feedback loop and Flask-based desktop UI. Designed for secure, air-gapped environments like defense and surveillance systems.
+# 🚢 Offline CLIP Image Search with Custom Maritime Dataset
+
+This project implements an offline image search system using OpenAI’s CLIP model, customized for a maritime dataset. It allows users to input a text query and retrieve the most relevant images based on semantic similarity — all without needing an internet connection.
+
+---
+
+## 🔍 Key Features
+
+- CLIP-powered: Uses CLIP (Contrastive Language–Image Pre-training) for cross-modal embedding.
+- Custom Maritime Dataset: Focused on ships, cargo, vessels, and related maritime scenes.
+- Offline Search: No API calls or cloud services — runs entirely on local hardware.
+- Fast Retrieval: Precomputed embeddings ensure quick similarity matching.
+- Tag and Caption Support: Optional JSON-based caption maps improve result filtering.
+
+---
+
+## 📁 Project Structure
 
 clip_image_search/
-├── app.py # Main Flask/Streamlit app
-├── utils.py # Utility functions for embedding and search
-├── preprocess_features.py # Preprocessing & embedding images
-├── templates/index.html # Web UI (if Flask used)
-├── caption_image_map.json # Optional: image to caption mapping
-├── requirements.txt # Python dependencies
-├── .gitignore # Files to exclude from Git
-└── README.md # Project documentation
+├── app.py                        # Main application
+├── utils.py                      # Embedding and search logic
+├── preprocess_features.py        # Image preprocessing and feature extraction
+├── templates/index.html          # Web UI (Flask/HTML)
+├── caption_image_map.json        # Mapping between image files and captions
+├── requirements.txt              # Python dependencies
+└── README.md                     # This file
 
-bash
-Copy
-Edit
+---
 
 ## 🚀 How to Run
 
-1. **Clone the repository**
+### 1. Clone the repository
 
 git clone https://github.com/Munazil1/offline_clip_image_search_with_custom_maritime_dataset1.git
 cd offline_clip_image_search_with_custom_maritime_dataset1
-Install dependencies
 
+### 2. Install dependencies
 
 pip install -r requirements.txt
-Run the app
+
+### 3. Download the Maritime Dataset
+
+Download from Google Drive:
+
+https://drive.google.com/drive/folders/1GYeKbdJfk2Eq00AICZgBcP8MZQCr97mV?usp=sharing
+
+After downloading:
+- Extract it inside the project folder under a directory called ship_dataset/
+- Ensure the images are directly inside the folder (not nested in subfolders)
+
+### 4. Run Preprocessing
+
+python preprocess_features.py
+
+### 5. Start the Application
 
 python app.py
-Or use Streamlit/Gradio if configured.
 
-🧠 How It Works
-Images and captions are embedded using CLIP.
+---
 
-All embeddings are stored locally (.npy, .json, etc.).
+## 🧠 How It Works
 
-When a query is entered, it’s embedded and compared to image vectors using cosine similarity.
+- Images and captions are embedded using CLIP.
+- All embeddings are stored locally (.npy, .json, etc.).
+- When a user enters a query, it's embedded and compared to image vectors using cosine similarity.
+- The top matches are returned.
 
-The top matches are returned and displayed.
+---
 
-📦 Dependencies
-openai-clip or transformers
+## 📦 Dependencies
 
-torch
+- torch, CLIP, numpy, flask or streamlit, PIL, scikit-learn
+- Optional: faiss for faster similarity search
 
-flask, streamlit, or gradio
-
-numpy, PIL, scikit-learn, faiss (optional)
-
-Install them using:
+Install them all via:
 
 pip install -r requirements.txt
-📸 Sample Use Case
-Search for:
 
-"Red cargo ship in storm"
+---
 
-And get back:
+## 📄 License
 
-cargo_red_002.jpg
-
-stormy_ocean_tanker.jpg
-
-📄 License
 This project is open-source and free to use under the MIT License.
